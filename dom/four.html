@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="jsdom.jpg">
+    <title>Dom</title>
+    <style>
+        h1{
+            text-decoration:underline;
+            background-color: yellow;
+            color: black;
+
+        }
+    </style>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <h1>Edit or Remove Element (DOM) </h1>
+    
+    <div class="language">
+        <li>JavaScript</li> 
+    </div>
+
+</body>
+
+<script>
+
+    function addLanguage(langName){
+        const li = document.createElement('li');
+        li.innerHTML = `${langName}`
+        document.querySelector('.language').appendChild(li)
+
+    }
+    addLanguage("android");
+    addLanguage("ios");
+
+    function addOptiLang(langName){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li);
+
+    }
+    addOptiLang("golang");
+
+
+    // Edit
+
+    const secondLang = document.querySelector("li:nth-child(1)");
+    const nli = document.createElement('li');
+    nli.textContent="mojo"
+    secondLang.replaceWith(nli);    
+
+    // edit 
+    
+    const firstLang = document.querySelector("li:first-child");
+    firstLang.outerHTML = '<li>TypeScript</li>'
+
+    //Remove 
+
+    const lastLang = document.querySelector('li:last-child');
+    lastLang.remove();
+    
+    
+
+</script>
+</html>
